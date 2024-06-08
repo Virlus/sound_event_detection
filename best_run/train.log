@@ -1,0 +1,100 @@
+[2024-06-08 21:11:26] Storing files in experiments_data_aug/Crnn/2024-06-08_21-11-06_9c67b09c259811efaed55cff35c18da5
+[2024-06-08 21:11:26] batch_size: 64
+[2024-06-08 21:11:26] data:
+[2024-06-08 21:11:26]   class_indice_file: data/metadata/class_label_indices.txt
+[2024-06-08 21:11:26]   feature: data/dev/feature.csv
+[2024-06-08 21:11:26]   label: data/dev/label.csv
+[2024-06-08 21:11:26]   stratified: true
+[2024-06-08 21:11:26] dataloader_args:
+[2024-06-08 21:11:26]   batch_size: 64
+[2024-06-08 21:11:26]   num_workers: 1
+[2024-06-08 21:11:26] early_stop: 7
+[2024-06-08 21:11:26] epochs: 100
+[2024-06-08 21:11:26] eval_data:
+[2024-06-08 21:11:26]   feature: data/eval/feature.csv
+[2024-06-08 21:11:26]   label: data/eval/label.csv
+[2024-06-08 21:11:26] loss: BceLoss
+[2024-06-08 21:11:26] model:
+[2024-06-08 21:11:26]   args:
+[2024-06-08 21:11:26]     gru_layers: 2
+[2024-06-08 21:11:26]   type: Crnn
+[2024-06-08 21:11:26] num_workers: 2
+[2024-06-08 21:11:26] optimizer:
+[2024-06-08 21:11:26]   args:
+[2024-06-08 21:11:26]     lr: 0.001
+[2024-06-08 21:11:26]   type: AdamW
+[2024-06-08 21:11:26] outputpath: experiments_data_aug/
+[2024-06-08 21:11:26] scheduler_args:
+[2024-06-08 21:11:26]   factor: 0.1
+[2024-06-08 21:11:26]   patience: 3
+[2024-06-08 21:11:26] 
+[2024-06-08 21:11:26] Running on device cuda
+[2024-06-08 21:11:37] AdamW (
+[2024-06-08 21:11:37] Parameter Group 0
+[2024-06-08 21:11:37]     amsgrad: False
+[2024-06-08 21:11:37]     betas: (0.9, 0.999)
+[2024-06-08 21:11:37]     capturable: False
+[2024-06-08 21:11:37]     differentiable: False
+[2024-06-08 21:11:37]     eps: 1e-08
+[2024-06-08 21:11:37]     foreach: None
+[2024-06-08 21:11:37]     fused: None
+[2024-06-08 21:11:37]     lr: 0.001
+[2024-06-08 21:11:37]     maximize: False
+[2024-06-08 21:11:37]     weight_decay: 0.01
+[2024-06-08 21:11:37] )
+[2024-06-08 21:11:37] Crnn(
+[2024-06-08 21:11:37]   (bn): BatchNorm2d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2024-06-08 21:11:37]   (cnn): Sequential(
+[2024-06-08 21:11:37]     (0): ConvBlock(
+[2024-06-08 21:11:37]       (conv): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+[2024-06-08 21:11:37]       (batch_norm): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2024-06-08 21:11:37]       (pool): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2024-06-08 21:11:37]       (relu): ReLU()
+[2024-06-08 21:11:37]     )
+[2024-06-08 21:11:37]     (1): ConvBlock(
+[2024-06-08 21:11:37]       (conv): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+[2024-06-08 21:11:37]       (batch_norm): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2024-06-08 21:11:37]       (pool): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2024-06-08 21:11:37]       (relu): ReLU()
+[2024-06-08 21:11:37]     )
+[2024-06-08 21:11:37]     (2): ConvBlock(
+[2024-06-08 21:11:37]       (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+[2024-06-08 21:11:37]       (batch_norm): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2024-06-08 21:11:37]       (pool): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2024-06-08 21:11:37]       (relu): ReLU()
+[2024-06-08 21:11:37]     )
+[2024-06-08 21:11:37]     (3): ConvBlock(
+[2024-06-08 21:11:37]       (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+[2024-06-08 21:11:37]       (batch_norm): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2024-06-08 21:11:37]       (pool): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2024-06-08 21:11:37]       (relu): ReLU()
+[2024-06-08 21:11:37]     )
+[2024-06-08 21:11:37]   )
+[2024-06-08 21:11:37]   (rnn): GRU(512, 512, num_layers=2, batch_first=True, bidirectional=True)
+[2024-06-08 21:11:37]   (fc_layer): Linear(in_features=1024, out_features=10, bias=True)
+[2024-06-08 21:11:37]   (sigmoid): Sigmoid()
+[2024-06-08 21:11:37] )
+[2024-06-08 21:11:49] Epoch 1   training_loss: 0.37  val_loss: 0.44  precision: 0.07  recall: 0.01  f1: 0.01
+[2024-06-08 21:11:57] Epoch 2   training_loss: 0.29  val_loss: 0.29  precision: 0.37  recall: 0.15  f1: 0.20
+[2024-06-08 21:12:05] Epoch 3   training_loss: 0.26  val_loss: 0.26  precision: 0.66  recall: 0.36  f1: 0.42
+[2024-06-08 21:12:13] Epoch 4   training_loss: 0.23  val_loss: 0.29  precision: 0.57  recall: 0.32  f1: 0.36
+[2024-06-08 21:12:21] Epoch 5   training_loss: 0.22  val_loss: 0.25  precision: 0.68  recall: 0.47  f1: 0.53
+[2024-06-08 21:12:29] Epoch 6   training_loss: 0.20  val_loss: 0.20  precision: 0.79  recall: 0.50  f1: 0.56
+[2024-06-08 21:12:37] Epoch 7   training_loss: 0.17  val_loss: 0.23  precision: 0.58  recall: 0.50  f1: 0.52
+[2024-06-08 21:12:45] Epoch 8   training_loss: 0.17  val_loss: 0.29  precision: 0.64  recall: 0.47  f1: 0.49
+[2024-06-08 21:12:53] Epoch 9   training_loss: 0.15  val_loss: 0.18  precision: 0.68  recall: 0.59  f1: 0.61
+[2024-06-08 21:13:01] Epoch 10   training_loss: 0.12  val_loss: 0.20  precision: 0.76  recall: 0.57  f1: 0.63
+[2024-06-08 21:13:09] Epoch 11   training_loss: 0.12  val_loss: 0.19  precision: 0.73  recall: 0.70  f1: 0.70
+[2024-06-08 21:13:16] Epoch 12   training_loss: 0.10  val_loss: 0.18  precision: 0.79  recall: 0.64  f1: 0.68
+[2024-06-08 21:13:24] Epoch 13   training_loss: 0.10  val_loss: 0.28  precision: 0.71  recall: 0.62  f1: 0.60
+[2024-06-08 21:13:32] Epoch 14   training_loss: 0.07  val_loss: 0.18  precision: 0.78  recall: 0.69  f1: 0.72
+[2024-06-08 21:13:40] Epoch 15   training_loss: 0.06  val_loss: 0.17  precision: 0.77  recall: 0.72  f1: 0.73
+[2024-06-08 21:13:47] Epoch 16   training_loss: 0.05  val_loss: 0.17  precision: 0.79  recall: 0.71  f1: 0.74
+[2024-06-08 21:13:55] Epoch 17   training_loss: 0.05  val_loss: 0.17  precision: 0.76  recall: 0.73  f1: 0.74
+[2024-06-08 21:14:03] Epoch 18   training_loss: 0.05  val_loss: 0.18  precision: 0.76  recall: 0.73  f1: 0.74
+[2024-06-08 21:14:11] Epoch 19   training_loss: 0.04  val_loss: 0.18  precision: 0.76  recall: 0.72  f1: 0.73
+[2024-06-08 21:14:18] Epoch 20   training_loss: 0.04  val_loss: 0.19  precision: 0.76  recall: 0.72  f1: 0.73
+[2024-06-08 21:14:26] Epoch 21   training_loss: 0.04  val_loss: 0.19  precision: 0.77  recall: 0.71  f1: 0.73
+[2024-06-08 21:14:34] Epoch 22   training_loss: 0.04  val_loss: 0.19  precision: 0.76  recall: 0.71  f1: 0.73
+[2024-06-08 21:14:42] Epoch 23   training_loss: 0.04  val_loss: 0.18  precision: 0.75  recall: 0.73  f1: 0.73
+[2024-06-08 21:14:50] Epoch 24   training_loss: 0.04  val_loss: 0.19  precision: 0.75  recall: 0.73  f1: 0.73

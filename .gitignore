@@ -1,0 +1,6 @@
+experiments/
+experiments_data_aug/
+slurm_logs/
+data/dev
+data/eval
+data/metadata
