@@ -17,6 +17,14 @@ cd ..;
 sbatch run.sh
 ```
 
+3. 数据增强：
+
+`data/extract_feature.py`中的`augment_audio`函数用于数据增强，可通过注释该函数调用取消之。
+
+4. 最佳config：
+
+最佳训练setting保存在`best_run/`文件夹中。
+
 注: evaluate.py 用于计算指标，预测结果 `prediction.csv` 写成这样的形式 (分隔符为 `\t`):
 ```
 filename        event_label     onset   offset
